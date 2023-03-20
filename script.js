@@ -1,0 +1,26 @@
+let btn = document.querySelector('#addBtn')
+let ul = document.querySelector('#list')
+let inp = document.querySelector('#taskInput')
+btn.addEventListener('click', function(ev){
+    let li = document.createElement('li')
+    li.classList.add('item')
+    li.textContent = inp.value
+    let item = document.createElement('div')
+    item.classList.add('item__btns')
+    let chkBtn = document.createElement('div')
+    chkBtn.classList.add('fa-regular')
+    chkBtn.classList.add('fa-square-check')
+    chkBtn.addEventListener('click', function(){
+        li.classList.toggle('done')
+    })
+    let rmvBtn = document.createElement('div')
+    rmvBtn.classList.add('fa-solid')
+    rmvBtn.classList.add('fa-trash-can')
+    rmvBtn.addEventListener('click', function(){
+        this.closest('li').remove()
+    })
+    ul.append(li)
+    li.append(item)
+    item.append(chkBtn)
+    item.append(rmvBtn)
+})
